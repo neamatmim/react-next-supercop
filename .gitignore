@@ -1,0 +1,31 @@
+# build output
+dist
+build
+out
+# dependencies
+node_modules
+package-lock.json
+test/node_modules
+.next
+.docz
+
+# logs & pids
+*.log
+pids
+
+# coverage
+.nyc_output
+coverage
+
+# test output
+test/**/out
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode
+__diff_output__
+lib
