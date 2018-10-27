@@ -1,0 +1,1 @@
+https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/

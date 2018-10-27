@@ -1,0 +1,22 @@
+---
+name: Dropdown
+menu: UI
+---
+
+import {Playground, PropsTable} from 'docz'
+import Dropdown from './'
+
+# Dropdown
+
+## Properties
+
+<PropsTable of={Dropdown} />
+
+## Basic Usage
+
+<Playground>
+  <Dropdown items={this.state.items} titleHelper="Location"
+  title="Select location"
+  toggleItem={this.toggleSelected}/>
+</Playground>
+
