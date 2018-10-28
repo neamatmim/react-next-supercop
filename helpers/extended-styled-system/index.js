@@ -30,17 +30,76 @@ export {
   variant,
   themeGet,
   get,
-  px,
-  num,
 } from 'styled-system';
 
-import { style, getWidth, num } from 'styled-system';
-
+import {
+  style,
+  variant,
+  compose,
+  getWidth,
+  num,
+  px,
+  space,
+  borders,
+  width,
+  maxWidth,
+  minWidth,
+  height,
+  maxHeight,
+  minHeight,
+  fontSize,
+  color,
+  flex,
+  order,
+  alignSelf,
+  display,
+} from 'styled-system';
+/**
+ *
+ * Custom Ulility Functions
+ *
+ */
 export const css = props => props.css;
 
 export const themed = key => props => props.theme[key];
 
 export const rem = n => (num(n) ? n + 'rem' : n);
+
+export const boxModel = compose(
+  space,
+  borders,
+  width,
+  maxWidth,
+  minWidth,
+  height,
+  maxHeight,
+  minHeight,
+  display
+);
+
+import styled from 'styled-components';
+
+export const base = styled.div(
+  boxModel,
+  fontSize,
+  color,
+  flex,
+  order,
+  alignSelf,
+  css,
+  themed('base')
+);
+
+base.propTypes = {
+  ...fontSize.propTypes,
+  ...color.propTypes,
+};
+
+/**
+ *
+ * Custom Styled-system Functions
+ *
+ */
 
 // const containerSize = style({
 //   // React prop name

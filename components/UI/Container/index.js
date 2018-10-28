@@ -1,9 +1,9 @@
+import React from 'react';
 import styled, { withTheme } from 'styled-components';
 import PropTypes from 'prop-types';
-import { BoxWrapper } from '../../../helpers/styled-utility';
-import { themeGet, get } from '../../../helpers/extended-styled-system';
+import { themeGet, get, base } from '../../../helpers/extended-styled-system';
 
-const ContainerWrapper = styled(BoxWrapper)`
+const ContainerWrapper = styled(base)`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -11,10 +11,16 @@ const ContainerWrapper = styled(BoxWrapper)`
   padding-left: ${themeGet('grid.columnPaddingLeft', '1rem')};
 `;
 
-const Container = ({ children, defaultContainerSizes, fluid, ...props }) => {
+const Container = ({
+  theme,
+  children,
+  defaultContainerSizes,
+  fluid,
+  ...props
+}) => {
   const containerSize = [
     null,
-    ...(get(props.theme.grid, 'containerSizes') || defaultContainerSizes),
+    ...(get(theme.grid, 'containerSizes') || defaultContainerSizes),
   ];
   return (
     <ContainerWrapper maxWidth={!fluid ? containerSize : null} {...props}>
@@ -25,9 +31,10 @@ const Container = ({ children, defaultContainerSizes, fluid, ...props }) => {
 
 export default withTheme(Container);
 
-// Container.displayName = 'Container';
+Container.displayName = 'Container';
 
 Container.propTypes = {
+  theme: PropTypes.object,
   fluid: PropTypes.bool,
   children: PropTypes.node.isRequired,
   defaultContainerSizes: PropTypes.arrayOf(PropTypes.string),
