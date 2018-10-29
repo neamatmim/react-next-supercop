@@ -1,31 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BoxWrapper } from '../../helpers/styled-utility';
+import styled from 'styled-components';
+import { base, themed } from '../../helpers/extended-styled-system';
+
+const BoxWrapper = styled(base)(themed('BoxWrapper'));
 
 const Box = ({ children, ...props }) => (
   <BoxWrapper {...props}>{children}</BoxWrapper>
 );
 
-Box.propTypes = {
-  children: PropTypes.node.isRequired,
-  ...BoxWrapper.propTypes,
-};
-
 export default Box;
 
-// export const Flex = styled(Box)({
-//   display: 'flex'
-// },
-//   flexWrap,
-//   flexDirection,
-//   alignItems,
-//   justifyContent,
-//   themed('Flex')
-// )
+Box.displayName = 'Box';
 
-// Flex.propTypes = {
-//   ...flexWrap.propTypes,
-//   ...flexDirection.propTypes,
-//   ...alignItems.propTypes,
-//   ...justifyContent.propTypes
-// }
+Box.propTypes = {
+  children: PropTypes.node.isRequired,
+};

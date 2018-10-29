@@ -91,6 +91,7 @@ export const base = styled.div(
 );
 
 base.propTypes = {
+  ...boxModel.propTypes,
   ...fontSize.propTypes,
   ...color.propTypes,
 };
